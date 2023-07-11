@@ -1,0 +1,30 @@
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 600000000 # 86400000 # a day
+      refresh-token:
+        expiration: 6048000000000 # 7 days
+spring:
+  datasource:
+    username: sa
+    url: jdbc:h2:mem:mydb
+    driverClassName: org.h2.Driver
+    password: password
+  h2:
+    console:
+      enabled: 'true'
+      settings:
+        web-allow-others: 'true'
+        trace: 'false'
+      path: /h2-console
+  jpa:
+    properties:
+      hibernate:
+        hbm2dll:
+          create_namespaces: 'true'
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: 'false'
+    hibernate:
+      format_sql: true
+      ddl-auto: update
